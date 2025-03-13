@@ -31,9 +31,14 @@ def updateNodes(repo_name,updated_at):
     resp = Session.get(f"https://api.github.com/repos/{repo_name}/readme",headers=v2config.HEADERS)
     d = resp.json()["content"]
     d = base64.b64decode(d).decode('utf-8')  # 添加base64解码
+    print(d)
     d = re.findall(v2config.REX_LINK, d)[0]
     d = Session.get(d)
-    if d.status_code != 200:return
+    print(d)
+    if d.status_code != 200:
+        
+        print(d.status_code)
+        return
     d = base64.b64decode(d.text).decode('utf-8')  # 添加base64解码
     l = d.replace("\r\n","\n").splitlines()
     def _pop(j):
