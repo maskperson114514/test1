@@ -30,10 +30,7 @@ def updateNodes(repo_name,updated_at):
     d = resp.json()["content"]
     d = base64.b64decode(d).decode('utf-8')  # 添加base64解码
     d = re.findall(v2config.REX_LINK, d)[0]
-    d = Session.get(d,proxies={
-        "http":"http://127.0.0.1:10809",
-        "https":"http://127.0.0.1:10809"
-    })
+    d = Session.get(d)
     if d.status_code != 200:return
     d = base64.b64decode(d.text).decode('utf-8')  # 添加base64解码
     l = d.replace("\r\n","\n").splitlines()
