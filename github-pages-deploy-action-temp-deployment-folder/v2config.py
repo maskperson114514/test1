@@ -1,5 +1,4 @@
 import re
-import base64
 REPOS = [
     "mksshare/mksshare.github.io",
     "abshare3/abshare3.github.io",
@@ -18,6 +17,25 @@ HEADERS = {
   'Accept-Encoding': 'gzip, deflate',
 }
 
-dddd= "5Y+w5rm+Lemmmea4ry3ml6XmnKwt5paw5Yqg5Z2hLemfqeWbvS3oj7Llvovlrr4t576O5Zu9LemprOadpeilv+S6mi3opb/nj63niZkt5rOw5Zu9LeWNsOW6pi3mvrPlpKfliKnkupot5Yqg5ou/5aSnLeW+t+WbvS3kv4TnvZfmlq8t5Zyf6ICz5YW2LeS5jOWFi+WFsC3otorljZct5be06KW/"
-COUNTRIES= base64.b64decode(dddd).decode("utf-8").split("-")
 
+COUNTRIES= [
+    "台湾",
+    "香港",
+    "日本",
+    "新加坡",
+    "韩国",
+    "菲律宾",
+    "美国",
+    "马来西亚",
+    "西班牙",
+    "泰国",
+    "印度",
+    "澳大利亚",
+    "加拿大",
+    "德国",
+    "俄罗斯",
+    "土耳其",
+    "乌克兰",
+    "越南",
+    "巴西"
+]
