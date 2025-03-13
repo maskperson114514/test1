@@ -21,8 +21,10 @@ def base64_remove_symbols(data):
     return cleaned
 def save():
     for cnt in v2config.COUNTRIES:
-        with open(f"\\node\\{base64_remove_symbols(base64.b64encode(cnt.encode('utf-8')).decode('utf-8'))}.txt","w",encoding="utf-8") as f:
+        with open(f"node/{base64_remove_symbols(base64.b64encode(cnt.encode('utf-8')).decode('utf-8'))}.txt","w",encoding="utf-8") as f:
             for i in v2config.REPOS:
+                print("#"*10)
+                print(NODES[i][1])
                 f.write("\r\n".join(NODES[i][1][cnt]) + "\r\n")  # 将列表转换为字符串，分隔符为
 def updateNodes(repo_name,updated_at):
     global NODES
@@ -40,6 +42,7 @@ def updateNodes(repo_name,updated_at):
     for cnt in v2config.COUNTRIES:
         NODES[repo_name][1][cnt] = [_pop(j) for j in l if COUNTRIES_u[cnt] in j]
     NODES[repo_name][0] = updated_at
+    print(NODES)
 def getRepoTime():
     global updated_at
     response = Session.get(v2config.SEARCH_URL, headers=v2config.HEADERS)
